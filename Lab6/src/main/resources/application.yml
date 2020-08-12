@@ -1,0 +1,20 @@
+logging:
+    file: logs/application-debug.log
+    pattern:
+        console: '%-5level %logger{36} - %msg%n'
+        file: '%d %-5level [%thread] %logger : %msg%n'
+    level:
+        com.coursecube: DEBUG
+        com.zaxxer.hikari: INFO
+        org.hibernate: INFO
+        org.springframework: INFO
+        root: DEBUG
+
+spring:
+    datasource:
+        hikari:
+            connectionTimeout: 20000
+            maximumPoolSize: 50
+        password: lpras
+        url: jdbc:mariadb://127.0.0.1:3306/user?useUnicode=true&characterEncoding=utf8
+        username: lpras

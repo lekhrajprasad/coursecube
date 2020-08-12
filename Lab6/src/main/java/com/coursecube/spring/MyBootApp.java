@@ -28,7 +28,7 @@ public class MyBootApp implements CommandLineRunner {
 		LOG.info("MyBootApp..run() method ----Starts");
 		LOG.info("------------------------------------");
 		// 1. addCustomer
-		Customer cust1 = new Customer(16, "sd", "sd@jlc", 9999, "Pune");
+		Customer cust1 = new Customer(17, "sd", "sd@jlc", 9999, "Pune");
 		cdao.addCustomer(cust1);
 		// 2. getAllCustomers
 		LOG.info("getAllCustomers");
