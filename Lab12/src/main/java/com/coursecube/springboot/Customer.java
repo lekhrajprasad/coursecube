@@ -31,6 +31,14 @@ public class Customer {
         this.city = city;
     }
 
+    public Customer(int i, String name, String email, int phone, String city) {
+        this.cid = i;
+        this.cname = name;
+        this.email = email;
+        this.phone = phone;
+        this.city = city;
+    }
+
     public int getCid() {
         return cid;
     }

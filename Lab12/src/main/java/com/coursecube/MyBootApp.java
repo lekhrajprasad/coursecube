@@ -9,16 +9,18 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.data.domain.Sort;
 
-import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @SpringBootApplication
 public class MyBootApp implements CommandLineRunner {
     static final Logger log = LoggerFactory.getLogger(MyBootApp.class);
 
     @Autowired
-    CustomerDAO cdao;
+    CustomerDAO customerDAO;
 
 
     public static void main(String[] args) {
@@ -31,64 +33,51 @@ public class MyBootApp implements CommandLineRunner {
 
         log.info("My Boot App - run() begin");
         log.info("-------------------------------------");
-        // 1. addCustomer
-        Customer cust1 = new Customer("sri", "sri@jlc", 12346, "Blore");
-        cdao.addCustomer(cust1);
+        //1. delete all to clean the table
+        //customerDAO.deleteAll();
 
-        // 2. updateCustomer
-        Customer cust2 = new Customer("vas-update", "vas@jlc", 8888, "Blore");
-        cust2.setCid(19);
-        cdao.updateCustomer(cust2);
+        //2. save()
+        Random random = new Random();
+        int randomNum = random.nextInt(10000);
+        final String name = "name-"+randomNum;
+        Customer customer = new Customer(name, "email", 12345, "city");
+        //customerDAO.save(customer);
 
-        // 3. deleteCustomer
-        //cdao.deleteCustomer(8);
+        // 2. saveAndFlush()
+        customer = new Customer(name+"-saveFlush", "email", 12345, "city");
+        //customerDAO.saveAndFlush(customer);
 
-        // 4. getCustomerByCid
-        Customer cust3 = cdao.getCustomerByCid(9);
-        System.out.println(cust3);
+        //3. saveAll()
+        Customer customer1 = new Customer("name11", "email11", 11111, "city11");
+        Customer customer2 = new Customer(51, "name22", "email22", 22222, "city22");
+        List<Customer> customerList = new ArrayList<>();
+        customerList.add(customer1);
+        customerList.add(customer2);
+        //customerDAO.saveAll(customerList);
 
-        //6.getCustomersByCity
-        List<Customer> list = cdao.getCustomersByCity("Gaya");
+        //4. findAll
+        log.info("zzzzzzzzzzzzzzz--findAll--zzzzzzzzzzzzzzzzzz");
+        List<Customer> list = customerDAO.findAll();
         list.forEach(System.out::println);
+        log.info("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
 
-        //7.getCustomersByEmail
-        list = cdao.getCustomersByEmail("sri@jlc");
+        //5. findAllById
+        //6. findAll(Sort)
+        log.info("zzzzzzzzzzzzzzz--findAll--zzzzzzzzzzzzzzzzzz");
+        list = customerDAO.findAll(Sort.by(Sort.Order.asc("phone")));
         list.forEach(System.out::println);
+        log.info("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
 
-        //8.getCustomersByEmailAndPhone
-        list = cdao.getCustomersByEmailAndPhone("sri@jlc", 1234);
-        list.forEach(System.out::println);
-
-        //9.getCustomersByEmailOrPhone
-        list = cdao.getCustomersByEmailOrPhone("sri@jlc", 123456890);
-        list.forEach(System.out::println);
-
-        //5.getAllCustomers
-        log.info("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
-        List<Customer> list1 = cdao.getAllCustomers();
-        list1.forEach(System.out::println);
-        log.info("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
-
-        //10.getCustomerCount
-        BigInteger big = cdao.getCustomerCount();
-        System.out.println("All Count : " + big.intValue());
-
-        //11.getCustomerCountByCity
-        big = cdao.getCustomerCountByCity("Hyd");
-        System.out.println("Count : " + big.intValue());
-
-        //12.getCityByEmail
-        String city = cdao.getCityByEmail("vas@jlc");
-        System.out.println(city);
-
-        //13.getPhoneByEmail
-        long phone = cdao.getPhoneByEmail("vas@jlc");
-        System.out.println(phone);
-
-        //14.getCidByPhone
-        int cid = cdao.getCidByPhone(12346);
-        System.out.println(cid);
-
+        //7. existById
+        if(customerDAO.existsById(43))
+            //8. deleteById
+            customerDAO.deleteById(43);
+        customerDAO.deleteAll(customerList);
+        // 9. count()
+        long count = customerDAO.count();
+        System.out.println("No of record in table: "+count);
+        //10. flush()
+        customerDAO.flush();
 
         log.info("-------------------------------------");
         log.info("My Boot App - run() END");
