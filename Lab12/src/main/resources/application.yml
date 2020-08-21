@@ -1,0 +1,16 @@
+spring:
+    datasource:
+        hikari:
+            connectionTimeout: 20000
+            maximumPoolSize: 50
+        password: lpras
+        url: jdbc:mariadb://127.0.0.1:3306/user?useUnicode=true&characterEncoding=utf8
+        username: lpras
+
+    main:
+        log-startup-info: false
+logging:
+    level:
+        root: INFO
+    pattern:
+        console: '%-5level %logger{36} - %msg%n'
