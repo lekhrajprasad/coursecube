@@ -1,3 +1,4 @@
+data/
 build/
 .gradle/
 out/
@@ -24,3 +25,5 @@ dist/
 .idea/
 .vscode/
 *.sw*
+
+#execute the command git config --global core.excludesfile ~/.gitignore
