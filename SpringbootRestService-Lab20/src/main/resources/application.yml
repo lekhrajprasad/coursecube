@@ -1,0 +1,11 @@
+spring:
+    application:
+        name: my-hello- app
+server:
+    port: 12345
+
+logging:
+    level:
+        root: INFO
+    pattern:
+        console: '%-5level [%thread]-${PID} %logger{36}  - %msg%n'
