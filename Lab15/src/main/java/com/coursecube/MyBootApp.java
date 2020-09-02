@@ -2,6 +2,7 @@ package com.coursecube;
 
 import com.coursecube.springboot.Customer;
 import com.coursecube.springboot.CustomerDAO;
+import com.coursecube.springboot.CustomerProjectionDAO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,9 @@ public class MyBootApp implements CommandLineRunner {
 
     @Autowired
     CustomerDAO customerDAO;
+
+    @Autowired
+    CustomerProjectionDAO customerProjectionDAO;
 
 
     public static void main(String[] args) {
@@ -55,6 +59,14 @@ public class MyBootApp implements CommandLineRunner {
         //5. Native Queries with Param
         list = customerDAO.findCustomersByPhone(12345);
         list.forEach(System.out::println);
+
+        //6. projection example get all from column name => email
+        List<String> stringList = customerProjectionDAO.getEmailProjectionByEmail("email");
+        stringList.forEach(System.out::println);
+
+        //7. Multi-Column Projections
+        List<Object[]> objects = customerProjectionDAO.getCidNamePhoneProjection();
+        objects.forEach(e->System.out.println(e[0].toString()+"=>"+e[1].toString()+"=>"+e[2].toString()));
 
         log.info("-------------------------------------");
         log.info("My Boot App - run() END");
