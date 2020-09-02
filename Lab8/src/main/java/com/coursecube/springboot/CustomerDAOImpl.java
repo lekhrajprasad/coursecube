@@ -29,7 +29,6 @@ public class CustomerDAOImpl implements CustomerDAO{
 
     @Override
     public List<Customer> getCustomerByCity(String city) {
-        Class clazz;
         DetachedCriteria dc = DetachedCriteria.forClass(Customer.class);
         dc.add(Restrictions.eq("city",city));
 

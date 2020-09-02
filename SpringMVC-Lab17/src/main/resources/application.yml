@@ -1,0 +1,9 @@
+spring:
+  thymeleaf:
+    cache: false
+
+logging:
+    level:
+        root: DEBUG
+    pattern:
+        console: '%-5level [%thread]-${PID} %logger{36}  - %msg%n'

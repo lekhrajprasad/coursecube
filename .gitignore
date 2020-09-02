@@ -1,6 +1,8 @@
+target/
 data/
 build/
 .gradle/
+.settings/
 out/
 *.iml
 *.*/*.iml
@@ -25,5 +27,10 @@ dist/
 .idea/
 .vscode/
 *.sw*
+
+.classpath
+.project
+
+
 
 #execute the command git config --global core.excludesfile ~/.gitignore

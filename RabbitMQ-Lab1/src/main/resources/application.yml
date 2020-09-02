@@ -1,0 +1,13 @@
+# RabbitMQ Properties
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+logging:
+    level:
+        root: DEBUG
+    pattern:
+        console: '%-5level [%thread]-${PID} %logger{36}  - %msg%n'
