@@ -1,5 +1,8 @@
 package com.coursecube.springboot;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Hello {
     String name;
     String message;
