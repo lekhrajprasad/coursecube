@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class JLCBeanConfig {
 	public static final String HELLO_EXCHANGE= "hello-exchange";
-	public static final String HELLO_QUEUE= "hello-queue";
+	public static final String HELLO_QUEUE= "test-queue";
 
 	public static final String ORDER_EXCHANGE= "order-exchange";
 	public static final String ORDER_QUEUE= "order-queue";

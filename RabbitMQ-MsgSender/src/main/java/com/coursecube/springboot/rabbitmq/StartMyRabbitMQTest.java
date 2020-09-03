@@ -24,10 +24,10 @@ public class StartMyRabbitMQTest implements CommandLineRunner {
         System.out.println("RabbitMQTest Application Launched");
         helloMsgSender.sendHelloMsg("Hello Guys, How are you doing ?");
 
-        for(int i=0; i<Integer.MAX_VALUE; i++){
+        /*for(int i=0; i<Integer.MAX_VALUE; i++){
             Order order = new Order(i, "31-Aug-2020", 99+i, 5,2500 , true);
             orderSender.sendOrder(order);
-        }
+        }*/
         System.out.println("Done!!!!!!");
     }
 }
