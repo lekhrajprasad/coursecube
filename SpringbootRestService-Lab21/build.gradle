@@ -1,0 +1,33 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.3.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'java'
+}
+
+group = 'com.coursecube.springboot'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+// Include dependent libraries in archive.
+
+repositories {
+	//maven { url "http://repo.maven.apache.org/maven2/" }
+	mavenCentral()
+
+}
+//configurations.all{
+	//exclude module: 'spring-boot-starter-logging'
+//}
+dependencies {
+
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.mariadb.jdbc:mariadb-java-client'
+
+	//jaxb deprecated in java 9 and removed in java 11 so added explicitly
+	implementation 'javax.xml.bind:jaxb-api:2.3.1'
+	runtime 'com.sun.xml.bind:jaxb-impl:2.3.1'
+	runtime 'com.sun.xml.bind:jaxb-core:2.3.0.1'
+
+
+
+}
