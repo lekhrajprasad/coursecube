@@ -7,6 +7,10 @@ public class TxInfo {
     public TxInfo() {
     }
 
+    public TxInfo(double amount) {
+        this.amount = amount;
+    }
+
     public TxInfo(int accno, double amount) {
         this.accno = accno;
         this.amount = amount;
