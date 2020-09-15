@@ -1,3 +1,4 @@
+/*
 package com.coursecube.springboot.rabbitmq;
 
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -14,3 +15,4 @@ public class OrderSender {
         rabbitTemplate.convertAndSend(routingKey, order);
     }
 }
+*/

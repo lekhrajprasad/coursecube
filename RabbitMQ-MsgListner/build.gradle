@@ -7,7 +7,12 @@ plugins {
 group = 'com.coursecube.springboot.rabbitmq'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
-
+bootJar {
+	layered()
+}
+bootBuildImage {
+	imageName = "lpras/msglistener:2"
+}
 repositories {
 	mavenCentral()
 }

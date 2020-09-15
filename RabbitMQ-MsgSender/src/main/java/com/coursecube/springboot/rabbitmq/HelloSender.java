@@ -1,3 +1,4 @@
+/*
 package com.coursecube.springboot.rabbitmq;
 
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -5,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class HelloMsgSender {
+public class HelloSender {
 
     @Autowired
     private RabbitTemplate rabbitTemplate;
@@ -17,3 +18,4 @@ public class HelloMsgSender {
 
 
 }
+*/

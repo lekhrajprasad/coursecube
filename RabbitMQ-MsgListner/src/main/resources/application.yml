@@ -1,12 +1,13 @@
 # RabbitMQ Properties
 spring:
   rabbitmq:
-    addresses: amqps://fzekfwiw:jbpGD-8sjkNNFPxm37o4MVKCnZS11XhE@chinook.rmq.cloudamqp.com/fzekfwiw
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
 logging:
     level:
         root: INFO
     pattern:
         console: '%-5level [%thread]-${PID} %logger{36}  - %msg%n'
-server:
-  port: 11111

@@ -93,4 +93,19 @@ public class Test1 {
             e.printStackTrace();
         }
     }
+
+    public static void upload(){     // This method will download file using RestTemplate
+        RestTemplateBuilder restTemplate  = new RestTemplateBuilder();
+        String url = "http://localhost:8080/upload";
+        try {
+            HttpHeaders headers = new HttpHeaders();
+            headers.setAccept(Arrays.asList(MediaType.APPLICATION_OCTET_STREAM));
+            HttpEntity<String> entity = new HttpEntity<>(headers);
+            ResponseEntity<byte[]> response = restTemplate.build()
+                    .exchange(url, HttpMethod.POST, entity, byte[].class);
+            //Files.write(Paths.get("demo1.pdf"), response.getBody());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }

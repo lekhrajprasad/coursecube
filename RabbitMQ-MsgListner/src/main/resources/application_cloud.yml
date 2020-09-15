@@ -1,10 +1,7 @@
 # RabbitMQ Properties
 spring:
   rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
+    addresses: amqps://fzekfwiw:jbpGD-8sjkNNFPxm37o4MVKCnZS11XhE@chinook.rmq.cloudamqp.com/fzekfwiw
 
 logging:
     level:

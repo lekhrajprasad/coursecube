@@ -12,7 +12,7 @@ import java.io.IOException;
 
 @RestController
 public class DownloadPDFController {
-    /*@GetMapping(name = "/get-pdf", produces = "application/pdf")
+    @GetMapping(name = "/get-pdf", produces = "application/pdf")
     ResponseEntity<InputStreamResource> getPdf() throws IOException {
         ClassPathResource pdfFile = new ClassPathResource("atalhos_eclipse.pdf");
         HttpHeaders headers = new HttpHeaders();
@@ -23,5 +23,5 @@ public class DownloadPDFController {
         return ResponseEntity.ok().headers(headers).contentLength(pdfFile.contentLength())
                 .contentType(MediaType.parseMediaType("application/octet-stream"))
                 .body(new InputStreamResource(pdfFile.getInputStream()));
-    }*/
+    }
 }
